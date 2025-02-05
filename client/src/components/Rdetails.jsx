@@ -10,7 +10,7 @@ const RestaurantDetails = () => {
   useEffect(() => {
     const fetchRestaurantDetails = async () => {
       try {
-        const response = await fetch(`http://localhost:5000/api/restaurants/${id}`);
+        const response = await fetch(`https://restaurant-finder123.onrender.com/api/restaurants/${id}`);
         
         if (!response.ok) {
           throw new Error("Failed to fetch restaurant details");

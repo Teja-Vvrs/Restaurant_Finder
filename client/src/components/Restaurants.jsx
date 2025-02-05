@@ -22,7 +22,7 @@ const RestaurantsList = () => {
     const fetchRestaurants = async () => {
       setLoading(true);
       try {
-        let url = `http://localhost:5000/api/restaurants?page=${page}&limit=20`;
+        let url = `https://restaurant-finder123.onrender.com/api/restaurants?page=${page}&limit=20`;
         if (searchTerm) {
           url += `&search=${searchTerm}`;
         }

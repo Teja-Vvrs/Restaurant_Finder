@@ -27,7 +27,7 @@ const LocationSearch = () => {
     setLoading(true);
     try {
       const response = await fetch(
-        `http://localhost:5000/api/location?lat=${lat}&lng=${lng}&radius=${radius}`
+        `https://restaurant-finder123.onrender.com/api/location?lat=${lat}&lng=${lng}&radius=${radius}`
       );
       const data = await response.json();
       setRestaurants(data);
