@@ -1,0 +1,21 @@
+{
+    "results_found": 17151,
+    "restaurants": [
+      {
+        "name": "Hauz Khas Social",
+        "cuisines": "Continental, American, Asian, North Indian",
+        "average_cost_for_two": 1600,
+        "user_rating": {
+          "aggregate_rating": "4.3",
+          "votes": "7931"
+        },
+        "location": {
+          "address": "9-A & 12, Hauz Khas Village, New Delhi",
+          "city": "New Delhi"
+        },
+        "featured_image": "https://b.zmtcdn.com/data/pictures/2/308322/cf86dbd8b8ca4d40682c7713f112cc07_featured_v2.jpg",
+        "url": "https://www.zomato.com/HauzKhasSocial?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1"
+      }
+    ]
+  }
+  
