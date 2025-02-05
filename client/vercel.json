@@ -1,0 +1,39 @@
+{
+    "rewrites": [
+      {
+        "source": "/api/restaurants",
+        "destination": "https://restaurant-finder123.onrender.com/api/restaurants"
+      },
+      {
+        "source": "/api/restaurants/:id",
+        "destination": "https://restaurant-finder123.onrender.com/api/restaurants/:id"
+      },
+      {
+        "source": "/api/location",
+        "destination": "https://restaurant-finder123.onrender.com/api/location?lat=${latitude}&lng=${longitude}&radius=${radius}"
+      },
+      {
+        "source": "/(.*)",
+        "destination": "/"
+      }
+    ],
+    "headers": [
+      {
+        "source": "/(.*)",
+        "headers": [
+          {
+            "key": "Access-Control-Allow-Origin",
+            "value": "*"
+          },
+          {
+            "key": "Access-Control-Allow-Methods",
+            "value": "GET, POST, PUT, DELETE, OPTIONS"
+          },
+          {
+            "key": "Access-Control-Allow-Headers",
+            "value": "X-Requested-With, Content-Type, Accept"
+          }
+        ]
+      }
+    ]
+}
