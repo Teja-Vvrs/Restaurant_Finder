@@ -15,7 +15,7 @@ const Home = () => {
     setTheme(theme === "light" ? "dark" : "light");
   };
 
-  const themeClasses = theme === "dark" ? "bg-gray-900 text-white" : "bg-gray-50 text-gray-900";
+  const themeClasses = theme === "dark" ? "bg-gray-900 text-white" : "bg-gray-900 text-white";
 
   const handleSearch = () => {
     if (search.trim()) {
@@ -52,7 +52,7 @@ const Home = () => {
 
   const handleViewAll = () => {
     setSearch("");  
-    navigate("/restaurants"); // Navigate to restaurants page without search query
+    navigate("/restaurants"); 
   };
 
   return (

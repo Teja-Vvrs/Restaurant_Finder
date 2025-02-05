@@ -35,8 +35,7 @@ const RestaurantDetails = () => {
 <div className=" mt-10 p-8 bg-beige shadow-lg rounded-lg">
       
       <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
-        
-        {/* Left Section - Image & Rating */}
+      
         <div className="relative">
           <img
             src={restaurant.featured_image || "https://via.placeholder.com/600"}
@@ -48,24 +47,18 @@ const RestaurantDetails = () => {
           </div>
         </div>
 
-        {/* Right Section - Details */}
         <div>
           <h1 className="text-4xl font-bold text-biscuit-900">{restaurant.name}</h1>
           <p className="text-buscuit-600 text-lg mt-2">{restaurant.location?.locality || "Location not available"}</p>
 
-          {/* Cuisines */}
           <p className="mt-4 text-white-200 text-lg"><b>Cuisine:</b> {restaurant.cuisines || "N/A"}</p>
 
-          {/* Address */}
           <p className="mt-2"><b>Address:</b> {restaurant.location?.address || "N/A"}</p>
 
-          {/* Pricing & Cost */}
           <p className="mt-2"><b>Average Cost for Two:</b> ₹{restaurant.average_cost_for_two || "N/A"}</p>
 
-          {/* Contact */}
           <p className="mt-2"><b>Phone:</b> {restaurant.phone_numbers || "Not available"}</p>
 
-          {/* Visit Website Button */}
           {restaurant.url && (
             <a
               href={restaurant.url}
@@ -80,7 +73,6 @@ const RestaurantDetails = () => {
 
       </div>
 
-      {/* Menu Section */}
       {restaurant.menu_url && (
         <div className="mt-10 p-6 bg-beige-100 rounded-lg">
           <h2 className="text-3xl font-semibold text-buscuit-1000 mb-4">Menu</h2>

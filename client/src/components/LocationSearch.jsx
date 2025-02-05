@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 const LocationSearch = () => {
   const [latitude, setLatitude] = useState("");
   const [longitude, setLongitude] = useState("");
-  const [radius, setRadius] = useState(100);  // Default to 100 km for geolocation
+  const [radius, setRadius] = useState(100);  
   const [restaurants, setRestaurants] = useState([]);
   const [loading, setLoading] = useState(false);
   const [searchParams] = useSearchParams();
@@ -13,7 +13,7 @@ const LocationSearch = () => {
   useEffect(() => {
     const lat = searchParams.get("lat");
     const lng = searchParams.get("lng");
-    const rad = searchParams.get("radius") || 100; // Default radius is 100 km
+    const rad = searchParams.get("radius") || 100; 
 
     if (lat && lng) {
       setLatitude(lat);

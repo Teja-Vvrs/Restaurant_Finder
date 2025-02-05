@@ -30,7 +30,7 @@ const getRestaurants = async (req, res) => {
 
     const result = await collection.aggregate([
       { $unwind: "$restaurants" },
-      { $match: query },  // Apply search filter here
+      { $match: query }, 
       { $skip: skip },
       { $limit: limit },
       { $project: { "restaurant": "$restaurants.restaurant" } },
