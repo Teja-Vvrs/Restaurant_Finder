@@ -27,4 +27,3 @@ If time allows, implement the following additional features, ensuring they are s
 - **Search Functionality**: Enable search for restaurants by name and description.
 
 -**Deployment Link**:https://restaurant-finder-indol.vercel.app/
---**Video Link**:
