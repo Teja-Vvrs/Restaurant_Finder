@@ -41,7 +41,7 @@ const LocationSearch = () => {
   return (
     <div className="container mx-auto p-4">
       <motion.h1
-        className="text-4xl font-bold mb-8 text-center text-purple-600"
+        className="text-4xl font-bold mb-8 text-center text-slate-800"
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
@@ -85,7 +85,7 @@ const LocationSearch = () => {
                       {restaurant.restaurant.user_rating.aggregate_rating}
                     </span>
                   </div>
-                  <Link to={`/restaurant/${restaurant.restaurant.id}`} className="block text-center bg-purple-600 text-white px-4 py-2 rounded-lg hover:bg-purple-700 transition">
+                  <Link to={`/restaurant/${restaurant.restaurant.id}`} className="block text-center bg-emerald-700 text-white px-4 py-2 rounded-lg hover:bg-emerald-900 transition">
                     View Details
                   </Link>
                 </div>

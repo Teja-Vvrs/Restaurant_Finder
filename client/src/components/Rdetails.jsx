@@ -31,7 +31,7 @@ const RestaurantDetails = () => {
 
   return (
     <motion.div 
-      className="mt-10 p-8 bg-gradient-to-r from-purple-600 to-indigo-600 shadow-lg rounded-lg text-white"
+      className="mt-10 p-8 bg-gradient-to-r from-emerald-800 to-indigo-600 shadow-lg rounded-lg text-white"
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
@@ -75,6 +75,7 @@ const RestaurantDetails = () => {
         </div>
       </div>
 
+      {/* Menu Section */}
       {restaurant.menu_url && (
         <div className="mt-10 p-6 bg-white text-black rounded-lg shadow-lg">
           <h2 className="text-3xl font-semibold mb-4">Menu</h2>
