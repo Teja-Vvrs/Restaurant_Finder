@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
-import { SunIcon, MoonIcon, SearchIcon, LocationMarkerIcon, GlobeIcon, ViewListIcon } from "@heroicons/react/solid";
+import { SunIcon, MoonIcon, SearchIcon, LocationMarkerIcon, GlobeIcon, ViewListIcon, CameraIcon } from "@heroicons/react/solid";
 
 const Home = () => {
   const [search, setSearch] = useState("");
@@ -9,6 +9,7 @@ const Home = () => {
   const [longitude, setLongitude] = useState("");
   const [radius, setRadius] = useState(100);
   const [theme, setTheme] = useState("light");
+  const [image, setImage] = useState(null);  // New state to store image
   const navigate = useNavigate();
 
   const toggleTheme = () => {
@@ -49,6 +50,25 @@ const Home = () => {
       alert("Geolocation is not supported by this browser.");
     }
   };
+
+  const handleImageSearch = () => {
+    // if (image) {
+    //     // Create a base64 string for the image
+    //     const reader = new FileReader();
+    //     reader.onloadend = () => {
+    //         const base64Image = reader.result;
+    //         // Now pass the base64 string along with any other state you need
+            navigate("/restaurants/imgsearch")
+    //             state: { image: base64Image },
+    //         });
+    //     };
+    //     reader.readAsDataURL(image); // Read the image as base64
+    // } else {
+    //     alert("Please upload an image before searching.");
+    // }
+};
+
+
 
   const handleViewAll = () => {
     setSearch("");  
@@ -95,6 +115,16 @@ const Home = () => {
           <button className="mt-4 bg-yellow-600 text-white px-4 py-2 rounded-xl hover:bg-yellow-700 transition duration-300 ease-in-out cursor-pointer flex items-center justify-center" onClick={handleGeoLocationSearch}>
             <LocationMarkerIcon className="h-5 w-5 mr-2" />
             Use My Location for Nearby Restaurants
+          </button>
+        </div>
+      </motion.div>
+
+      {/* Image Upload for Searching */}
+      <motion.div className="w-full max-w-md mt-6" initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.5, delay: 0.4 }}>
+        <div className={`flex flex-col rounded-2xl shadow-lg overflow-hidden p-5 ${theme === "dark" ? "bg-gray-800" : "bg-gray-800"}`}>
+          <button className="mt-4 bg-blue-600 text-white px-4 py-2 rounded-xl hover:bg-blue-700 transition duration-300 ease-in-out cursor-pointer flex items-center justify-center" onClick={handleImageSearch}>
+            <CameraIcon className="h-5 w-5 mr-2" />
+            Search by Image
           </button>
         </div>
       </motion.div>

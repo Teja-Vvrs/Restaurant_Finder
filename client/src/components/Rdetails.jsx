@@ -7,6 +7,7 @@ const RestaurantDetails = () => {
   const [restaurant, setRestaurant] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [showMore, setShowMore] = useState(false);  
 
   useEffect(() => {
     const fetchRestaurantDetails = async () => {
@@ -62,6 +63,25 @@ const RestaurantDetails = () => {
             <p><b>Cost for Two:</b> ₹{restaurant.average_cost_for_two || "N/A"}</p>
             <p><b>Phone:</b> {restaurant.phone_numbers || "Not available"}</p>
           </div>
+          
+          {/* Show More / Show Less */}
+          {showMore && (
+            <div className="mt-4 space-y-3">
+              <p><b>Rating Text:</b> {restaurant.user_rating?.rating_text || "N/A"}</p>
+              <p><b>Reviews:</b> {restaurant.user_rating?.votes || "N/A"}</p>
+              <p><b>Timings:</b> {restaurant.timings || "N/A"}</p>
+              <p><b>Speciality:</b> {restaurant.speciality || "N/A"}</p>
+            </div>
+          )}
+
+          {/* Button to toggle show more */}
+          <button
+            onClick={() => setShowMore(!showMore)}
+            className="mt-6 inline-block bg-blue-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-600 transition"
+          >
+            {showMore ? "Show Less" : "Show More"}
+          </button>
+          
           {restaurant.url && (
             <a
               href={restaurant.url}

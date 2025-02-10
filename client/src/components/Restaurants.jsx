@@ -72,61 +72,61 @@ const RestaurantsList = () => {
   };
 
   return (
-    <div className="container mx-auto p-4">
-      <h1 className="text-3xl font-bold mb-6 text-center text-gray-800">Restaurant List</h1>
+    <div className="container mx-auto p-4 bg-gray-900 text-white">
+      <h1 className="text-3xl font-bold mb-6 text-center">Restaurant List</h1>
 
       <div className="mb-6 flex justify-center">
         <input
           type="text"
           placeholder="Search restaurants by name or cuisine..."
-          className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 px-4 py-2 border border-gray-300 rounded-lg"
+          className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 px-4 py-2 border border-gray-700 rounded-lg bg-gray-800 text-white focus:outline-none focus:ring-2 focus:ring-blue-600"
           value={searchTerm}
           onChange={handleSearchChange}
         />
       </div>
 
       {loading ? (
-        <p className="text-center text-gray-500">Loading...</p>
+        <p className="text-center">Loading...</p>
       ) : (
         <>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
             {filteredRestaurants.length > 0 ? (
               filteredRestaurants.map((restaurant) => (
-                <div key={restaurant.id || restaurant.name} className="max-w-xs w-full bg-white rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300">
+                <div key={restaurant.id || restaurant.name} className="max-w-xs w-full bg-gray-800 rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300">
                   <img 
                     src={restaurant.featured_image || restaurant.thumb || "https://placekitten.com/150/150"} 
                     alt={restaurant.name} 
                     className="w-full h-56 object-cover rounded-t-lg"
                   />
                   <div className="p-6">
-                    <h2 className="text-xl font-semibold text-gray-800 truncate">{restaurant.name || "Unnamed Restaurant"}</h2>
-                    <p className="text-gray-600 mt-1 truncate">{restaurant.location?.city || "Unknown City"}</p>
-                    <p className="text-gray-800 mt-1 text-lg">Avg Cost: Rs. {restaurant.average_cost_for_two || "N/A"}</p>
+                    <h2 className="text-xl font-semibold truncate">{restaurant.name || "Unnamed Restaurant"}</h2>
+                    <p className="mt-1 truncate">{restaurant.location?.city || "Unknown City"}</p>
+                    <p className="mt-1 text-lg">Avg Cost: Rs. {restaurant.average_cost_for_two || "N/A"}</p>
 
                     <div className="flex items-center mt-3">
                       <span className={`px-3 py-1 text-white text-sm rounded-full ${getRatingColor(restaurant.user_rating?.aggregate_rating)}`}>
                         ⭐ {restaurant.user_rating?.aggregate_rating || "N/A"}
                       </span>
-                      <span className="ml-2 text-gray-600">({restaurant.user_rating?.votes || 0} votes)</span>
+                      <span className="ml-2 text-gray-400">({restaurant.user_rating?.votes || 0} votes)</span>
                     </div>
 
-                    <Link to={`/restaurant/${restaurant.id}`} className="block mt-4 text-center py-2 px-4 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors duration-300">
+                    <Link to={`/restaurant/${restaurant.id}`} className="block mt-4 text-center py-2 px-4 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
                       View Details → 
                     </Link>
                   </div>
                 </div>
               ))
             ) : (
-              <p className="text-center text-gray-600 col-span-full">No restaurants found.</p>
+              <p className="text-center col-span-full">No restaurants found.</p>
             )}
           </div>
 
           <div className="flex justify-center mt-8 space-x-4">
-            <button onClick={() => setPage(prev => Math.max(prev - 1, 1))} disabled={page === 1} className="px-6 py-2 bg-gray-300 rounded-lg hover:bg-gray-400 transition-colors duration-300 disabled:opacity-50 disabled:cursor-not-allowed">
+            <button onClick={() => setPage(prev => Math.max(prev - 1, 1))} disabled={page === 1} className="px-6 py-2 bg-gray-700 rounded-lg hover:bg-gray-800 transition-colors duration-300 disabled:opacity-50 disabled:cursor-not-allowed">
               Previous
             </button>
-            <span className="px-6 py-2 bg-gray-200 rounded-lg text-gray-800">Page {page} of {totalPages}</span>
-            <button onClick={() => setPage(prev => Math.min(prev + 1, totalPages))} disabled={page === totalPages} className="px-6 py-2 bg-gray-300 rounded-lg hover:bg-gray-400 transition-colors duration-300 disabled:opacity-50 disabled:cursor-not-allowed">
+            <span className="px-6 py-2 bg-gray-800 rounded-lg">Page {page} of {totalPages}</span>
+            <button onClick={() => setPage(prev => Math.min(prev + 1, totalPages))} disabled={page === totalPages} className="px-6 py-2 bg-gray-700 rounded-lg hover:bg-gray-800 transition-colors duration-300 disabled:opacity-50 disabled:cursor-not-allowed">
               Next
             </button>
           </div>
