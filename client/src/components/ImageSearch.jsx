@@ -56,17 +56,17 @@ const ImageSearch = () => {
       <h2 className="text-center text-3xl font-semibold mb-5">Search Restaurants by Image</h2>
       
       {/* Flex container for input and button */}
-      <div className="flex justify-center items-center mb-4">
+      <div className="flex flex-col sm:flex-row justify-center items-center mb-4 space-y-4 sm:space-y-0 sm:space-x-4">
         <input
           type="file"
           accept="image/*"
           onChange={handleImageChange}
-          className="p-3 border border-gray-700 rounded-lg bg-gray-800 text-white focus:outline-none focus:ring-2 focus:ring-blue-600 mr-3"
+          className="p-3 border border-gray-700 rounded-lg bg-gray-800 text-white focus:outline-none focus:ring-2 focus:ring-blue-600 w-full sm:w-auto"
         />
         <button
           onClick={fetchRestaurants}
           disabled={loading}
-          className="p-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition duration-200"
+          className="p-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition duration-200 w-full sm:w-auto"
         >
           {loading ? "Searching..." : "Search"}
         </button>
